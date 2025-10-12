@@ -1,4 +1,4 @@
-﻿namespace Time2Stretch.src
+﻿namespace Time2Stretch.Core
 {
 	internal class TimerManager : IDisposable
 	{

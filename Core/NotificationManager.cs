@@ -1,7 +1,6 @@
 ﻿using Microsoft.Toolkit.Uwp.Notifications;
-using static System.Net.Mime.MediaTypeNames;
 
-namespace Time2Stretch.src
+namespace Time2Stretch.Core
 {
 	internal class NotificationManager
 	{

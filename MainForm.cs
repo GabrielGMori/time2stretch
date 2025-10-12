@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using Time2Stretch.src;
+using Time2Stretch.Core;
 
 namespace Time2Stretch
 {
@@ -59,12 +59,12 @@ namespace Time2Stretch
 			SettingsOnStartUpCheckbox.Checked = Properties.Settings.Default.OpenSettingsOnStartup;
 
 			int TimeBetweenBreaksHours = Convert.ToInt32(Properties.Settings.Default.MinutesBetweenBreaks / 60);
-			int TimeBetweenBreaksMinutes = Convert.ToInt32(Properties.Settings.Default.MinutesBetweenBreaks - TimeBetweenBreaksHours * 60);
+			double TimeBetweenBreaksMinutes = Convert.ToInt32(Properties.Settings.Default.MinutesBetweenBreaks - TimeBetweenBreaksHours * 60);
 			TimeBetweenBreaksHoursTextbox.Text = TimeBetweenBreaksHours.ToString();
 			TimeBetweenBreaksMinutesTextbox.Text = TimeBetweenBreaksMinutes.ToString();
 
 			int BreakDurationHours = Convert.ToInt32(Properties.Settings.Default.BreakDurationInMinutes / 60);
-			int BreakDurationMinutes = Convert.ToInt32(Properties.Settings.Default.BreakDurationInMinutes - BreakDurationHours * 60);
+			double BreakDurationMinutes = Convert.ToInt32(Properties.Settings.Default.BreakDurationInMinutes - BreakDurationHours * 60);
 			BreakDurationHoursTextbox.Text = BreakDurationHours.ToString();
 			BreakDurationMinutesTextbox.Text = BreakDurationMinutes.ToString();
 
