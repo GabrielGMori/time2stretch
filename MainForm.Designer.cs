@@ -51,6 +51,7 @@
 			BreakEndMessageTextbox = new TextBox();
 			BreakEndMessageLabel = new Label();
 			InvalidTimesLabel = new Label();
+			ExitAppButton = new Button();
 			SuspendLayout();
 			// 
 			// SettingsOnStartUpCheckbox
@@ -278,12 +279,24 @@
 			InvalidTimesLabel.TextAlign = ContentAlignment.MiddleLeft;
 			InvalidTimesLabel.Visible = false;
 			// 
+			// ExitAppButton
+			// 
+			ExitAppButton.Location = new Point(630, 338);
+			ExitAppButton.Margin = new Padding(3, 4, 3, 4);
+			ExitAppButton.Name = "ExitAppButton";
+			ExitAppButton.Size = new Size(81, 31);
+			ExitAppButton.TabIndex = 33;
+			ExitAppButton.Text = "Exit App";
+			ExitAppButton.UseVisualStyleBackColor = true;
+			ExitAppButton.Click += ExitAppButton_Click;
+			// 
 			// MainForm
 			// 
 			AutoScaleDimensions = new SizeF(9F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.WhiteSmoke;
 			ClientSize = new Size(723, 402);
+			Controls.Add(ExitAppButton);
 			Controls.Add(InvalidTimesLabel);
 			Controls.Add(BreakEndMessageTextbox);
 			Controls.Add(BreakEndMessageLabel);
@@ -340,5 +353,6 @@
 		private TextBox BreakEndMessageTextbox;
 		private Label BreakEndMessageLabel;
 		private Label InvalidTimesLabel;
+		private Button ExitAppButton;
 	}
 }

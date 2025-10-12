@@ -58,13 +58,13 @@ namespace Time2Stretch
 		{
 			SettingsOnStartUpCheckbox.Checked = Properties.Settings.Default.OpenSettingsOnStartup;
 
-			int TimeBetweenBreaksHours = Convert.ToInt32(Properties.Settings.Default.MinutesBetweenBreaks / 60);
-			double TimeBetweenBreaksMinutes = Convert.ToInt32(Properties.Settings.Default.MinutesBetweenBreaks - TimeBetweenBreaksHours * 60);
+			int TimeBetweenBreaksHours = Convert.ToInt32(Math.Floor(Properties.Settings.Default.MinutesBetweenBreaks / 60));
+			double TimeBetweenBreaksMinutes = Properties.Settings.Default.MinutesBetweenBreaks - TimeBetweenBreaksHours * 60;
 			TimeBetweenBreaksHoursTextbox.Text = TimeBetweenBreaksHours.ToString();
 			TimeBetweenBreaksMinutesTextbox.Text = TimeBetweenBreaksMinutes.ToString();
 
-			int BreakDurationHours = Convert.ToInt32(Properties.Settings.Default.BreakDurationInMinutes / 60);
-			double BreakDurationMinutes = Convert.ToInt32(Properties.Settings.Default.BreakDurationInMinutes - BreakDurationHours * 60);
+			int BreakDurationHours = Convert.ToInt32(Math.Floor(Properties.Settings.Default.BreakDurationInMinutes / 60));
+			double BreakDurationMinutes = Properties.Settings.Default.BreakDurationInMinutes - BreakDurationHours * 60;
 			BreakDurationHoursTextbox.Text = BreakDurationHours.ToString();
 			BreakDurationMinutesTextbox.Text = BreakDurationMinutes.ToString();
 
@@ -106,7 +106,8 @@ namespace Time2Stretch
 			Show();
 		}
 
-		private void OnExitClicked(object? sender, EventArgs e)
+		private void OnExitClicked(object? sender, EventArgs e) => CloseApp();
+		private void CloseApp()
 		{
 			trayIcon.Visible = false;
 			allowClose = true;
@@ -202,5 +203,7 @@ namespace Time2Stretch
 			else clock.Start();
 			PauseStartButton.Text = clock.Paused == false ? "Pause" : "Start";
 		}
+
+		private void ExitAppButton_Click(object sender, EventArgs e) => CloseApp();
 	}
 }
