@@ -143,6 +143,7 @@ namespace Time2Stretch
 		private void SettingsOnStartUpCheckbox_CheckedChanged(object sender, EventArgs e)
 		{
 			Properties.Settings.Default.OpenSettingsOnStartup = SettingsOnStartUpCheckbox.Checked;
+			Properties.Settings.Default.Save();
 		}
 
 		private void ApplyTimersButton_Click(object sender, EventArgs e)
@@ -164,6 +165,7 @@ namespace Time2Stretch
 
 			Properties.Settings.Default.MinutesBetweenBreaks = newMinutesBetweenBreaks;
 			Properties.Settings.Default.BreakDurationInMinutes = newBreakDurationInMinutes;
+			Properties.Settings.Default.Save();
 
 			clock.Dispose();
 			clock = new(newMinutesBetweenBreaks, newBreakDurationInMinutes, clock.OnBreak);
@@ -174,16 +176,19 @@ namespace Time2Stretch
 		private void BreakStartMessageTextbox_TextChanged(object sender, EventArgs e)
 		{
 			Properties.Settings.Default.BreakStartMessage = BreakStartMessageTextbox.Text;
+			Properties.Settings.Default.Save();
 		}
 
 		private void BreakEndMessageTextbox_TextChanged(object sender, EventArgs e)
 		{
 			Properties.Settings.Default.BreakEndMessage = BreakEndMessageTextbox.Text;
+			Properties.Settings.Default.Save();
 		}
 
 		private void AddImagesCheckbox_CheckedChanged(object sender, EventArgs e)
 		{
 			Properties.Settings.Default.AddImagesToNotification = AddImagesCheckbox.Checked;
+			Properties.Settings.Default.Save();
 		}
 
 		private void SkipBreakButton_Click(object sender, EventArgs e)
@@ -196,16 +201,6 @@ namespace Time2Stretch
 			if (clock.Paused == false) clock.Pause();
 			else clock.Start();
 			PauseStartButton.Text = clock.Paused == false ? "Pause" : "Start";
-		}
-
-		private void InvalidTimesLabel_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void MainForm_Load(object sender, EventArgs e)
-		{
-
 		}
 	}
 }

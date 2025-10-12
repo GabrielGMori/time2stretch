@@ -277,7 +277,6 @@
 			InvalidTimesLabel.Text = "Please use only numbers";
 			InvalidTimesLabel.TextAlign = ContentAlignment.MiddleLeft;
 			InvalidTimesLabel.Visible = false;
-			InvalidTimesLabel.Click += InvalidTimesLabel_Click;
 			// 
 			// MainForm
 			// 
@@ -313,7 +312,6 @@
 			Margin = new Padding(3, 4, 3, 4);
 			Name = "MainForm";
 			Text = "Time2Stretch Settings";
-			Load += MainForm_Load;
 			ResumeLayout(false);
 			PerformLayout();
 		}
