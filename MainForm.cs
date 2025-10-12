@@ -154,7 +154,7 @@ namespace Time2Stretch
 				newMinutesBetweenBreaks = double.Parse(TimeBetweenBreaksHoursTextbox.Text) * 60 + double.Parse(TimeBetweenBreaksMinutesTextbox.Text);
 				newBreakDurationInMinutes = double.Parse(BreakDurationHoursTextbox.Text) * 60 + double.Parse(BreakDurationMinutesTextbox.Text);
 			}
-			catch(FormatException)
+			catch (FormatException)
 			{
 				InvalidTimesLabel.Visible = true;
 				return;
@@ -199,6 +199,11 @@ namespace Time2Stretch
 		}
 
 		private void InvalidTimesLabel_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void MainForm_Load(object sender, EventArgs e)
 		{
 
 		}

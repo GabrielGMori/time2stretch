@@ -181,7 +181,7 @@
 			// 
 			// BreakDurationHoursTextbox
 			// 
-			BreakDurationHoursTextbox.Location = new Point(419, 70);
+			BreakDurationHoursTextbox.Location = new Point(415, 70);
 			BreakDurationHoursTextbox.Margin = new Padding(3, 4, 3, 4);
 			BreakDurationHoursTextbox.Name = "BreakDurationHoursTextbox";
 			BreakDurationHoursTextbox.Size = new Size(29, 27);
@@ -190,7 +190,7 @@
 			// BreakDurationMinutesLabel
 			// 
 			BreakDurationMinutesLabel.AutoSize = true;
-			BreakDurationMinutesLabel.Location = new Point(496, 73);
+			BreakDurationMinutesLabel.Location = new Point(492, 73);
 			BreakDurationMinutesLabel.Name = "BreakDurationMinutesLabel";
 			BreakDurationMinutesLabel.Size = new Size(22, 20);
 			BreakDurationMinutesLabel.TabIndex = 26;
@@ -200,7 +200,7 @@
 			// BreakDurationHoursLabel
 			// 
 			BreakDurationHoursLabel.AutoSize = true;
-			BreakDurationHoursLabel.Location = new Point(448, 73);
+			BreakDurationHoursLabel.Location = new Point(444, 73);
 			BreakDurationHoursLabel.Name = "BreakDurationHoursLabel";
 			BreakDurationHoursLabel.Size = new Size(18, 20);
 			BreakDurationHoursLabel.TabIndex = 25;
@@ -209,7 +209,7 @@
 			// 
 			// BreakDurationMinutesTextbox
 			// 
-			BreakDurationMinutesTextbox.Location = new Point(466, 70);
+			BreakDurationMinutesTextbox.Location = new Point(462, 70);
 			BreakDurationMinutesTextbox.Margin = new Padding(3, 4, 3, 4);
 			BreakDurationMinutesTextbox.Name = "BreakDurationMinutesTextbox";
 			BreakDurationMinutesTextbox.Size = new Size(29, 27);
@@ -313,6 +313,7 @@
 			Margin = new Padding(3, 4, 3, 4);
 			Name = "MainForm";
 			Text = "Time2Stretch Settings";
+			Load += MainForm_Load;
 			ResumeLayout(false);
 			PerformLayout();
 		}
