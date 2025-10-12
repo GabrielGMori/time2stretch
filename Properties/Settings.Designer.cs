@@ -38,36 +38,24 @@ namespace Time2Stretch.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("30")]
-        public int TimeBetweenBreaksInMinutes {
+        public double MinutesBetweenBreaks {
             get {
-                return ((int)(this["TimeBetweenBreaksInMinutes"]));
+                return ((double)(this["MinutesBetweenBreaks"]));
             }
             set {
-                this["TimeBetweenBreaksInMinutes"] = value;
+                this["MinutesBetweenBreaks"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("5")]
-        public int BreakDurationInMinutes {
+        public double BreakDurationInMinutes {
             get {
-                return ((int)(this["BreakDurationInMinutes"]));
+                return ((double)(this["BreakDurationInMinutes"]));
             }
             set {
                 this["BreakDurationInMinutes"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Time to stand up and stretch!")]
-        public string NotificationMessage {
-            get {
-                return ((string)(this["NotificationMessage"]));
-            }
-            set {
-                this["NotificationMessage"] = value;
             }
         }
         
@@ -80,6 +68,30 @@ namespace Time2Stretch.Properties {
             }
             set {
                 this["AddImagesToNotification"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Time to stand up and stretch!")]
+        public string BreakStartMessage {
+            get {
+                return ((string)(this["BreakStartMessage"]));
+            }
+            set {
+                this["BreakStartMessage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Back to work!")]
+        public string BreakEndMessage {
+            get {
+                return ((string)(this["BreakEndMessage"]));
+            }
+            set {
+                this["BreakEndMessage"] = value;
             }
         }
     }

@@ -32,10 +32,9 @@
 			SettingsOnStartUpCheckbox = new CheckBox();
 			TimeBetweenBreaksLabel = new Label();
 			TimeBetweenBreaksMinutesTextbox = new TextBox();
-			NotificationMessageLabel = new Label();
+			BreakStartMessageLabel = new Label();
 			AddImagesCheckbox = new CheckBox();
-			NotificationMessageTextbox = new TextBox();
-			label6 = new Label();
+			BreakStartMessageTextbox = new TextBox();
 			OnBreakLabel = new Label();
 			TimeLeftLabel = new Label();
 			TimeBetweenBreaksHoursLabel = new Label();
@@ -48,6 +47,10 @@
 			BreakDurationMinutesTextbox = new TextBox();
 			BreakDurationLabel = new Label();
 			ApplyTimersButton = new Button();
+			PauseStartButton = new Button();
+			BreakEndMessageTextbox = new TextBox();
+			BreakEndMessageLabel = new Label();
+			InvalidTimesLabel = new Label();
 			SuspendLayout();
 			// 
 			// SettingsOnStartUpCheckbox
@@ -63,7 +66,7 @@
 			SettingsOnStartUpCheckbox.TabIndex = 0;
 			SettingsOnStartUpCheckbox.Text = "Open this window on application startup";
 			SettingsOnStartUpCheckbox.UseVisualStyleBackColor = false;
-			SettingsOnStartUpCheckbox.CheckedChanged += checkBox1_CheckedChanged;
+			SettingsOnStartUpCheckbox.CheckedChanged += SettingsOnStartUpCheckbox_CheckedChanged;
 			// 
 			// TimeBetweenBreaksLabel
 			// 
@@ -82,69 +85,60 @@
 			TimeBetweenBreaksMinutesTextbox.Name = "TimeBetweenBreaksMinutesTextbox";
 			TimeBetweenBreaksMinutesTextbox.Size = new Size(29, 27);
 			TimeBetweenBreaksMinutesTextbox.TabIndex = 4;
-			TimeBetweenBreaksMinutesTextbox.TextChanged += TimeBetweenBreaksMinutesTextbox_TextChanged;
 			// 
-			// NotificationMessageLabel
+			// BreakStartMessageLabel
 			// 
-			NotificationMessageLabel.AutoSize = true;
-			NotificationMessageLabel.Location = new Point(16, 127);
-			NotificationMessageLabel.Name = "NotificationMessageLabel";
-			NotificationMessageLabel.Size = new Size(156, 20);
-			NotificationMessageLabel.TabIndex = 9;
-			NotificationMessageLabel.Text = "Notification message:";
+			BreakStartMessageLabel.AutoSize = true;
+			BreakStartMessageLabel.Location = new Point(16, 135);
+			BreakStartMessageLabel.Name = "BreakStartMessageLabel";
+			BreakStartMessageLabel.Size = new Size(148, 20);
+			BreakStartMessageLabel.TabIndex = 9;
+			BreakStartMessageLabel.Text = "Break start message:";
 			// 
 			// AddImagesCheckbox
 			// 
 			AddImagesCheckbox.AutoSize = true;
-			AddImagesCheckbox.Location = new Point(16, 162);
+			AddImagesCheckbox.Location = new Point(16, 206);
 			AddImagesCheckbox.Margin = new Padding(3, 4, 3, 4);
 			AddImagesCheckbox.Name = "AddImagesCheckbox";
 			AddImagesCheckbox.Size = new Size(208, 24);
 			AddImagesCheckbox.TabIndex = 10;
 			AddImagesCheckbox.Text = "Add images to notification";
 			AddImagesCheckbox.UseVisualStyleBackColor = true;
+			AddImagesCheckbox.CheckedChanged += AddImagesCheckbox_CheckedChanged;
 			// 
-			// NotificationMessageTextbox
+			// BreakStartMessageTextbox
 			// 
-			NotificationMessageTextbox.Location = new Point(174, 124);
-			NotificationMessageTextbox.Margin = new Padding(3, 4, 3, 4);
-			NotificationMessageTextbox.Name = "NotificationMessageTextbox";
-			NotificationMessageTextbox.Size = new Size(537, 27);
-			NotificationMessageTextbox.TabIndex = 11;
-			// 
-			// label6
-			// 
-			label6.AutoSize = true;
-			label6.Location = new Point(57, 190);
-			label6.Name = "label6";
-			label6.Size = new Size(0, 20);
-			label6.TabIndex = 12;
+			BreakStartMessageTextbox.Location = new Point(166, 132);
+			BreakStartMessageTextbox.Margin = new Padding(3, 4, 3, 4);
+			BreakStartMessageTextbox.Name = "BreakStartMessageTextbox";
+			BreakStartMessageTextbox.Size = new Size(545, 27);
+			BreakStartMessageTextbox.TabIndex = 11;
+			BreakStartMessageTextbox.TextChanged += BreakStartMessageTextbox_TextChanged;
 			// 
 			// OnBreakLabel
 			// 
 			OnBreakLabel.AutoSize = true;
-			OnBreakLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			OnBreakLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
 			OnBreakLabel.ForeColor = Color.Red;
-			OnBreakLabel.Location = new Point(293, 190);
+			OnBreakLabel.Location = new Point(16, 276);
 			OnBreakLabel.Name = "OnBreakLabel";
-			OnBreakLabel.Size = new Size(131, 25);
+			OnBreakLabel.Size = new Size(127, 20);
 			OnBreakLabel.TabIndex = 13;
-			OnBreakLabel.Text = "Not on break";
+			OnBreakLabel.Text = "❌ Not on break";
 			OnBreakLabel.TextAlign = ContentAlignment.MiddleCenter;
-			OnBreakLabel.Click += label7_Click;
 			// 
 			// TimeLeftLabel
 			// 
 			TimeLeftLabel.AutoSize = true;
 			TimeLeftLabel.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
 			TimeLeftLabel.ForeColor = Color.Black;
-			TimeLeftLabel.Location = new Point(295, 222);
+			TimeLeftLabel.Location = new Point(16, 300);
 			TimeLeftLabel.Name = "TimeLeftLabel";
-			TimeLeftLabel.Size = new Size(130, 20);
+			TimeLeftLabel.Size = new Size(178, 20);
 			TimeLeftLabel.TabIndex = 14;
-			TimeLeftLabel.Text = "Time left: 00h00m";
+			TimeLeftLabel.Text = "🕑 Time left: 00h00m00s";
 			TimeLeftLabel.TextAlign = ContentAlignment.MiddleCenter;
-			TimeLeftLabel.Click += TimeLeftLabel_Click;
 			// 
 			// TimeBetweenBreaksHoursLabel
 			// 
@@ -155,7 +149,6 @@
 			TimeBetweenBreaksHoursLabel.TabIndex = 15;
 			TimeBetweenBreaksHoursLabel.Text = "h";
 			TimeBetweenBreaksHoursLabel.TextAlign = ContentAlignment.MiddleLeft;
-			TimeBetweenBreaksHoursLabel.Click += TimeBetweenBreaksHoursLabel_Click;
 			// 
 			// TimeBetweenBreaksMinutesLabel
 			// 
@@ -169,13 +162,14 @@
 			// 
 			// SkipBreakButton
 			// 
-			SkipBreakButton.Location = new Point(294, 253);
+			SkipBreakButton.Location = new Point(16, 338);
 			SkipBreakButton.Margin = new Padding(3, 4, 3, 4);
 			SkipBreakButton.Name = "SkipBreakButton";
 			SkipBreakButton.Size = new Size(132, 31);
 			SkipBreakButton.TabIndex = 17;
 			SkipBreakButton.Text = "Skip to break";
 			SkipBreakButton.UseVisualStyleBackColor = true;
+			SkipBreakButton.Click += SkipBreakButton_Click;
 			// 
 			// TimeBetweenBreaksHoursTextbox
 			// 
@@ -184,7 +178,6 @@
 			TimeBetweenBreaksHoursTextbox.Name = "TimeBetweenBreaksHoursTextbox";
 			TimeBetweenBreaksHoursTextbox.Size = new Size(29, 27);
 			TimeBetweenBreaksHoursTextbox.TabIndex = 22;
-			TimeBetweenBreaksHoursTextbox.TextChanged += T_TextChanged;
 			// 
 			// BreakDurationHoursTextbox
 			// 
@@ -241,13 +234,61 @@
 			ApplyTimersButton.TabIndex = 28;
 			ApplyTimersButton.Text = "Apply Timers";
 			ApplyTimersButton.UseVisualStyleBackColor = true;
+			ApplyTimersButton.Click += ApplyTimersButton_Click;
+			// 
+			// PauseStartButton
+			// 
+			PauseStartButton.Location = new Point(156, 338);
+			PauseStartButton.Margin = new Padding(3, 4, 3, 4);
+			PauseStartButton.Name = "PauseStartButton";
+			PauseStartButton.Size = new Size(81, 31);
+			PauseStartButton.TabIndex = 29;
+			PauseStartButton.Text = "Pause";
+			PauseStartButton.UseVisualStyleBackColor = true;
+			PauseStartButton.Click += PauseStartButton_Click;
+			// 
+			// BreakEndMessageTextbox
+			// 
+			BreakEndMessageTextbox.Location = new Point(166, 167);
+			BreakEndMessageTextbox.Margin = new Padding(3, 4, 3, 4);
+			BreakEndMessageTextbox.Name = "BreakEndMessageTextbox";
+			BreakEndMessageTextbox.Size = new Size(545, 27);
+			BreakEndMessageTextbox.TabIndex = 31;
+			BreakEndMessageTextbox.TextChanged += BreakEndMessageTextbox_TextChanged;
+			// 
+			// BreakEndMessageLabel
+			// 
+			BreakEndMessageLabel.AutoSize = true;
+			BreakEndMessageLabel.Location = new Point(16, 170);
+			BreakEndMessageLabel.Name = "BreakEndMessageLabel";
+			BreakEndMessageLabel.Size = new Size(144, 20);
+			BreakEndMessageLabel.TabIndex = 30;
+			BreakEndMessageLabel.Text = "Break end message:";
+			// 
+			// InvalidTimesLabel
+			// 
+			InvalidTimesLabel.AutoSize = true;
+			InvalidTimesLabel.Font = new Font("Segoe UI Semibold", 8.25F, FontStyle.Bold);
+			InvalidTimesLabel.ForeColor = Color.Red;
+			InvalidTimesLabel.Location = new Point(537, 103);
+			InvalidTimesLabel.Name = "InvalidTimesLabel";
+			InvalidTimesLabel.Size = new Size(131, 13);
+			InvalidTimesLabel.TabIndex = 32;
+			InvalidTimesLabel.Text = "Please use only numbers";
+			InvalidTimesLabel.TextAlign = ContentAlignment.MiddleLeft;
+			InvalidTimesLabel.Visible = false;
+			InvalidTimesLabel.Click += InvalidTimesLabel_Click;
 			// 
 			// MainForm
 			// 
 			AutoScaleDimensions = new SizeF(9F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.WhiteSmoke;
-			ClientSize = new Size(723, 318);
+			ClientSize = new Size(723, 402);
+			Controls.Add(InvalidTimesLabel);
+			Controls.Add(BreakEndMessageTextbox);
+			Controls.Add(BreakEndMessageLabel);
+			Controls.Add(PauseStartButton);
 			Controls.Add(ApplyTimersButton);
 			Controls.Add(BreakDurationHoursTextbox);
 			Controls.Add(BreakDurationMinutesLabel);
@@ -260,10 +301,9 @@
 			Controls.Add(TimeBetweenBreaksHoursLabel);
 			Controls.Add(TimeLeftLabel);
 			Controls.Add(OnBreakLabel);
-			Controls.Add(label6);
-			Controls.Add(NotificationMessageTextbox);
+			Controls.Add(BreakStartMessageTextbox);
 			Controls.Add(AddImagesCheckbox);
-			Controls.Add(NotificationMessageLabel);
+			Controls.Add(BreakStartMessageLabel);
 			Controls.Add(TimeBetweenBreaksMinutesTextbox);
 			Controls.Add(TimeBetweenBreaksLabel);
 			Controls.Add(SettingsOnStartUpCheckbox);
@@ -282,10 +322,9 @@
 		private CheckBox SettingsOnStartUpCheckbox;
 		private Label TimeBetweenBreaksLabel;
 		private TextBox TimeBetweenBreaksMinutesTextbox;
-		private Label NotificationMessageLabel;
+		private Label BreakStartMessageLabel;
 		private CheckBox AddImagesCheckbox;
-		private TextBox NotificationMessageTextbox;
-		private Label label6;
+		private TextBox BreakStartMessageTextbox;
 		private Label OnBreakLabel;
 		private Label TimeLeftLabel;
 		private Label TimeBetweenBreaksHoursLabel;
@@ -298,5 +337,9 @@
 		private TextBox BreakDurationMinutesTextbox;
 		private Label BreakDurationLabel;
 		private Button ApplyTimersButton;
+		private Button PauseStartButton;
+		private TextBox BreakEndMessageTextbox;
+		private Label BreakEndMessageLabel;
+		private Label InvalidTimesLabel;
 	}
 }

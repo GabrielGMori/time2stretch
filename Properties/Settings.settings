@@ -5,17 +5,20 @@
     <Setting Name="OpenSettingsOnStartup" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="TimeBetweenBreaksInMinutes" Type="System.Int32" Scope="User">
+    <Setting Name="MinutesBetweenBreaks" Type="System.Double" Scope="User">
       <Value Profile="(Default)">30</Value>
     </Setting>
-    <Setting Name="BreakDurationInMinutes" Type="System.Int32" Scope="User">
+    <Setting Name="BreakDurationInMinutes" Type="System.Double" Scope="User">
       <Value Profile="(Default)">5</Value>
-    </Setting>
-    <Setting Name="NotificationMessage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Time to stand up and stretch!</Value>
     </Setting>
     <Setting Name="AddImagesToNotification" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="BreakStartMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Time to stand up and stretch!</Value>
+    </Setting>
+    <Setting Name="BreakEndMessage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Back to work!</Value>
     </Setting>
   </Settings>
 </SettingsFile>
