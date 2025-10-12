@@ -9,4 +9,6 @@ Made for Windows 10/11.
 - Keeps running in the background.
 - Customizable notification messages.
 
-<img width="725" height="434" alt="Time2Stretch Interface" src="https://github.com/user-attachments/assets/cc39d316-0662-4dcc-b152-fa74759df6ec" />
+<br>
+<img width="725" height="434" alt="image" src="https://github.com/user-attachments/assets/2ef08907-dc87-4ca7-8889-e9cbbf282924" />
+
