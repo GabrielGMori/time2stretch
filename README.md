@@ -3,12 +3,16 @@
 <h1 align="center">Time2Stretch</h1>
 
 Time2Stretch is a simple to use app that helps you remember to stand up and stretch sometimes!
+
 Made for Windows 10/11.
+
+<p align="center"><img width="387" height="125" alt="image" src="https://github.com/user-attachments/assets/e970966a-a8ab-4400-af36-52a163aaa4ae" /></p>
+
 ## Features
 - Sends you notifications to remind you to stand up and when to get back to work.
 - Keeps running in the background.
 - Customizable notification messages.
 
 <br>
-<img width="725" height="434" alt="image" src="https://github.com/user-attachments/assets/2ef08907-dc87-4ca7-8889-e9cbbf282924" />
+<p align="center"><img width="725" height="434" alt="image" src="https://github.com/user-attachments/assets/2ef08907-dc87-4ca7-8889-e9cbbf282924" /></p>
 
